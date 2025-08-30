@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gerador de Senhas"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:background="#00202D"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/passwordContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/password_background"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:elevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:hint="Sua senha será exibida aqui"
+            android:textColorHint="#25735d"
+            android:textSize="18sp"
+            android:textColor="#25735d" />
+
+        <ImageView
+            android:id="@+id/ivCopy"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/copy"
+            android:contentDescription="Copiar senha"
+            android:padding="6dp" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchUppercase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Letras maiúsculas"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/passwordContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchLowercase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Letras minúsculas"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/switchUppercase"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Números"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/switchLowercase"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchSymbols"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Símbolos"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/switchNumbers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchExcludeSimilar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Evitar repetição de caracteres"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/switchSymbols"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp" />
+
+    <TextView
+        android:id="@+id/tvLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamanho da senha: 4"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/switchExcludeSimilar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarLength"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:min="4"
+        android:max="32"
+        android:progress="4"
+        app:layout_constraintTop_toBottomOf="@id/tvLength"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Gerar"
+        android:textSize="18sp"
+        android:backgroundTint="#00202D"
+        android:textColor="#FFFFFF"
+        android:elevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/seekBarLength"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:paddingVertical="14dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
